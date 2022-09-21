@@ -60,7 +60,7 @@ export default function HelloWorld(props) {
 
                 <div className="row">
                   <div className="column-full">
-                    <div className="form-actions text-right">
+                    <div className="form-actions text-center">
                       <button type="submit" className="submit-button">SUBMIT</button>
                     </div>
                   </div>

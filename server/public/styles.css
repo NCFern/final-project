@@ -1,0 +1,24 @@
+body {
+  background-color: #ced4da;
+  font-family:
+    "Proza Libre",
+    sans-serif;
+}
+
+.navi-bar {
+  background-color: #5e60ce;
+  color: white;
+  font-family:
+    "Open Sans",
+    sans-serif;
+  padding: 15px;
+  font-size: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}

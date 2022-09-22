@@ -1,9 +1,9 @@
-body {
+/* body {
   background-color: #ced4da;
   font-family:
     "Proza Libre",
     sans-serif;
-}
+} */
 
 .navi-bar {
   background-color: #5e60ce;
@@ -26,4 +26,8 @@ body {
 
 .text-right {
   text-align: right;
+}
+
+.img-thumbnail {
+  width: 90%;
 }

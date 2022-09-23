@@ -34,7 +34,7 @@ app.get('/api/nurseEntries/:nurseId', (req, res) => {
          "firstName",
          "lastName",
          "photo",
-         "address",
+         "nurseAddress",
          "phoneNumber",
          "birthday"
   from "nurseEntries"
@@ -69,7 +69,7 @@ app.get('/api/nurseEntries', (req, res) => {
          "firstName",
          "lastName",
          "photo",
-         "address",
+         "nurseAddress",
          "phoneNumber",
          "birthday",
          "userId",

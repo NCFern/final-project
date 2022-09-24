@@ -15,8 +15,9 @@
   font-size: 30px;
 }
 
-.text-center {
+.center {
   text-align: center;
+  justify-content: center;
 }
 
 .heading-margin {
@@ -29,5 +30,5 @@
 }
 
 .img-thumbnail {
-  width: 90%;
+  width: 60%;
 }

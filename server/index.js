@@ -2,7 +2,6 @@ require('dotenv/config');
 const express = require('express');
 const staticMiddleware = require('./static-middleware');
 const errorMiddleware = require('./error-middleware');
-
 const pg = require('pg');
 
 const db = new pg.Pool({
@@ -13,7 +12,9 @@ const db = new pg.Pool({
 });
 
 const app = express();
+const jsonMiddleware = express.json();
 
+app.use(jsonMiddleware);
 app.use(staticMiddleware);
 
 app.get('/api/nurseEntries/:nurseId', (req, res) => {

@@ -91,13 +91,16 @@ app.use('/api/nurseEntries', express.json());
 
 app.post('/api/nurseEntries', (req, res, next) => {
 
+  const userId = 1;
   const sql = `
-    insert into "nurseEntries"("nurseId", "firstName", "lastName", "photo", "nurseAddress", "phoneNumber", "birthday", "userId", "hospitalId")
-    values ($1,$2,$3,$4,$5,$6,$7,$8,$9)
+    insert into "nurseEntries"("firstName", "lastName", "photo", "nurseAddress", "phoneNumber", "birthday", "userId", "hospitalId")
+    values ($1,$2,$3,$4,$5,$6,$7,$8)
     returning *
   `;
-  const nurseArray = [req.body.nurseId, req.body.firstName, req.body.lastName, req.body.photo, req.body.nurseAddress, req.body.phoneNumber, req.body.birthday, req.body.userId, req.body.hospitalId];
+  const nurseArray = [req.body.firstName, req.body.lastName, req.body.photo, req.body.nurseAddress, req.body.phoneNumber, req.body.birthday, userId, 1];
+  // console.log('BODY:', req.body);
   db.query(sql, nurseArray).then(result => {
+
     res.status(200).json(result.rows[0]);
   }).catch(err => next(err));
 });

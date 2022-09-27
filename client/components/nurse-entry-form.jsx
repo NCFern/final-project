@@ -24,7 +24,7 @@ export default class NurseEntryForm extends React.Component {
     this.handleNurseIdChange = this.handleNurseIdChange.bind(this);
     this.handleUserIdChange = this.handleUserIdChange.bind(this);
     this.handleHospitalIdChange = this.handleHospitalIdChange.bind(this);
-    // this.addtoDatabase = this.addtoDatabse.bind(this);
+    this.addtoDatabase = this.addtoDatabase.bind(this);
   }
 
   handleFirstNameChange(event) {
@@ -81,10 +81,25 @@ export default class NurseEntryForm extends React.Component {
     });
   }
 
-  // addtoDatabase(event) {
-  //   // const newObject = { firstName, lastName, photo, nurseAddress, phoneNumber, birthday };
-  //   fetch('/api/nurseEntries', { method: 'POST', body: JSON.stringify(newObject) });
-  // }
+  addtoDatabase(event) {
+    event.preventDefault();
+
+    const newObject = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      photo: this.state.photo,
+      nurseAddress: this.state.nurseAddress,
+      phoneNumber: this.state.phoneNumber,
+      birthday: this.state.birthday
+    };
+
+    fetch('/api/nurseEntries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newObject)
+    });
+
+  }
 
   render() {
     return (
@@ -97,7 +112,7 @@ export default class NurseEntryForm extends React.Component {
 
       <div className='container'>
         <div data-view='nurse-form'>
-          <form id='new-form'>
+            <form id='new-form' onSubmit={this.addtoDatabase}>
             <div className='row'>
               <div className='column-full center heading-margin'>
                 <h1>Nurse Entry</h1>
@@ -130,32 +145,6 @@ export default class NurseEntryForm extends React.Component {
                   <label htmlFor='nurseAddress'>Address</label>
                   <input required type='text' className='form-control' id='nurseAddress' value={this.state.nurseAddress} onChange={this.handleNurseAddressChange}></input>
                 </div>
-                {/* <div className='form-group'>
-                  <label htmlFor='inputAddress2'>Address 2</label>
-                  <input required type='text' className='form-control' id='inputAddress2'></input>
-                </div>
-
-                <div className='form-row'>
-                  <div className='form-group col-md-6'>
-                    <label htmlFor='inputCity'>City</label>
-                    <input required type='text' className='form-control' id='inputCity'></input>
-                  </div>
-                  <div className='form-group col-md-4'>
-                    <label htmlFor='inputState'>State</label>
-                    <select id='inputState' className='form-control'>
-                      <option disabled selected>Choose...</option>
-                      <option>California</option>
-                      <option>Nevada</option>
-                      <option>Arizona</option>
-                      <option>Oregon</option>
-                      <option>other</option>
-                    </select>
-                  </div>
-                  <div className='form-group col-md-2'>
-                    <label htmlFor='inputZip'>Zip</label>
-                    <input required type='text' className='form-control' id='inputAddress'></input>
-                  </div>
-                </div> */}
 
                 <div className='form-group'>
                   <label htmlFor='phoneNumber'>Phone Number</label>
@@ -171,7 +160,6 @@ export default class NurseEntryForm extends React.Component {
             </div>
             <div className='text-right'>
                 <button type="submit" className="btn btn-primary" >Submit</button>
-                {/* onClick={addtoDatabase} */}
             </div>
 
           </form>

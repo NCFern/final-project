@@ -106,7 +106,7 @@ export default class NurseEntryForm extends React.Component {
     <div>
       <header className='navi-bar'>
         <div className='container'>
-          Ledger
+          Remedy Recall
         </div>
       </header>
 

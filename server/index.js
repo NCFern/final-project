@@ -98,7 +98,6 @@ app.post('/api/nurseEntries', (req, res, next) => {
     returning *
   `;
   const nurseArray = [req.body.firstName, req.body.lastName, req.body.photo, req.body.nurseAddress, req.body.phoneNumber, req.body.birthday, userId, 1];
-  // console.log('BODY:', req.body);
   db.query(sql, nurseArray).then(result => {
 
     res.status(200).json(result.rows[0]);
